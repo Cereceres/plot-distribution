@@ -43,3 +43,5 @@ module.exports = function (distribution, options) {
     })[keys.length - 1]]
     return getString(data)
 }
+
+console.log(module.exports(Math.random))
