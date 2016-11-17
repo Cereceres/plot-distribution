@@ -34,6 +34,7 @@ module.exports = function (distribution, options) {
     let where
     for (var i = 0; i < points; i++ ) {
         where = Math.floor((distribution()-min)/step)
+        if( where < 0) continue
         data[(where*step + min).toFixed(2)] = data[(where*step + min).toFixed(2)] || 0
         data[(where*step + min).toFixed(2)]++
     }
