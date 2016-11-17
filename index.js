@@ -1,11 +1,11 @@
 'use strict'
+let MaximumPoints = 1000
 module.exports = function (distribution, options) {
     options = options || {}
-    console.log('distribution', typeof distribution )
     if (typeof distribution !== 'function') return
     let min = options.min || 0
     let max = options.max || 1
-    let intervals = options.intervals || 10
+    let intervals = options.intervals || MaximumPoints
     let step = options.step || (max - min)/intervals
     let points = options.points || 1000
     let Max 
@@ -26,7 +26,7 @@ module.exports = function (distribution, options) {
     keys.sort(function compareNumbers(a, b) {
         return +(a) - (+(b));
     }).forEach(function (item) {
-        plot += item + getPdfLikeString(Math.floor(data[item]/Max*10)) + '\n'
+        plot += item + getPdfLikeString(Math.floor(data[item]/Max*30)) + '\n'
     })
     return plot
     }
@@ -34,8 +34,8 @@ module.exports = function (distribution, options) {
     let where
     for (var i = 0; i < points; i++ ) {
         where = Math.floor((distribution()-min)/step)
-        data[where] = data[where] || 0
-        data[where]++
+        data[(where*step + min).toFixed(2)] = data[(where*step + min).toFixed(2)] || 0
+        data[(where*step + min).toFixed(2)]++
     }
     keys = Object.keys(data)
     Max =  data[keys.sort(function compareNumbers(a, b) {
@@ -43,5 +43,3 @@ module.exports = function (distribution, options) {
     })[keys.length - 1]]
     return getString(data)
 }
-
-console.log(module.exports(Math.random))
