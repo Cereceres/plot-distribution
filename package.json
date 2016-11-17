@@ -1,6 +1,6 @@
 {
   "name": "plot-distribution",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "plot a distribution",
   "main": "index.js",
   "directories": {

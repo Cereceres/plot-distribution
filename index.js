@@ -31,10 +31,12 @@ module.exports = function (distribution, options) {
     return plot
     }
     let data = {}
-    let where
+    let where 
+    let f_x
     for (var i = 0; i < points; i++ ) {
-        where = Math.floor((distribution()-min)/step)
-        if( where < 0) continue
+        f_x = distribution()
+        if( f_x < min || f_x > max ) continue
+        where = Math.floor((f_x-min)/step)
         data[(where*step + min).toFixed(2)] = data[(where*step + min).toFixed(2)] || 0
         data[(where*step + min).toFixed(2)]++
     }
