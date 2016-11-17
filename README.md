@@ -25,3 +25,7 @@ options = {
     points: 1000
 }
 ```
+
+distribution function has to be a function that receive a numerically param between [min, max].
+You do not need to pass both params intervals and step, as you can see only is neccessary to pass only one
+of this params.
