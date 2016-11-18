@@ -28,4 +28,17 @@ options = {
 
 distribution function has to be a function that receive a numerically param between [min, max].
 You do not need to pass both params intervals and step, as you can see only is neccessary to pass only one
-of this params.
+of this params. Using the Math.random function to test we obtain something like:
+
+```bash
+0.00****************************
+0.10****************************
+0.20*******************************
+0.30*****************************
+0.40****************************
+0.50*****************************
+0.60****************************
+0.70****************************
+0.80*****************************
+0.90*****************************
+```
